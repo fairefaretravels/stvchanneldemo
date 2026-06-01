@@ -444,6 +444,8 @@ footer span.sep{color:var(--red);opacity:0.5;}
     </div>
 
     <!-- CRT SCREEN -->
+    <video id="videoPlayer" autoplay muted controls playsinline></video>
+    
     <div class="crt" id="crt">
       <div class="static-overlay" id="static"></div>
       <img class="screen-logo"
@@ -524,6 +526,16 @@ footer span.sep{color:var(--red);opacity:0.5;}
 
 <script>
 // ── CLOCK ──
+  const archivePlaylist = [
+  "https://archive.org/download/CC_1914_02_02_MakingALiving/CC_1914_02_02_MakingALiving_512kb.mp4",
+  "https://archive.org/download/CC_1914_02_07_KidsAutoRaceAtVenice/CC_1914_02_07_KidsAutoRaceAtVenice_512kb.mp4",
+  "https://archive.org/download/CC_1914_02_09_MabelsStrangePredicament/CC_1914_02_09_MabelsStrangePredicament_512kb.mp4",
+  "https://archive.org/download/CC_1914_02_28_BetweenShowers/CC_1914_02_28_BetweenShowers_512kb.mp4",
+  "https://archive.org/download/CC_1915_03_01_TheChampion/CC_1915_03_01_TheChampion_512kb.mp4"
+];
+
+let archiveIndex = 0;
+const player = document.getElementById('videoPlayer');
 function updateClock(){
   const now=new Date();
   let h=now.getHours(),m=now.getMinutes(),s=now.getSeconds();
@@ -581,6 +593,25 @@ function nextChannel(){
 function prevChannel(){
   flashStatic(()=>{currentIdx=(currentIdx-1+channels.length)%channels.length;updateDisplay();});
 }
+  player.addEventListener('ended', () => {
+
+  if(channels[currentIdx].ch === '05'){
+
+    archiveIndex++;
+
+    if(archiveIndex >= archivePlaylist.length){
+      archiveIndex = 0;
+    }
+
+    player.src = archivePlaylist[archiveIndex];
+    player.play(if(channels[currentIdx].ch === '05'){
+  player.src = archivePlaylist[archiveIndex];
+  player.play();
+});
+
+  }
+
+});
 </script>
 </body>
 </html>
