@@ -474,7 +474,7 @@ footer span.sep{color:var(--red);opacity:0.5;}
       <div class="guide-line"></div>
     </div>
     <table class="guide-table">
-      <thead><tr><th>CH</th><th>Station</th><th>Programme</th><th></th></tr></thead>
+      <thead><tr><th>CH</th><th>Online</th><th>Broadcast</th><th></th></tr></thead>
       <tbody id="guide-body">
         <tr class="active" data-ch="0" onclick="switchToChannel(0)">
           <td>CH 01</td><td id="gt-name-0">STV LIVE</td><td id="gt-prog-0">The Static</td>
@@ -485,11 +485,11 @@ footer span.sep{color:var(--red);opacity:0.5;}
           <td class="live-tag">20:00</td>
         </tr>
         <tr data-ch="2" onclick="switchToChannel(2)">
-          <td>CH 03</td><td id="gt-name-2">INDIE VIDEOS</td><td id="gt-prog-2">The Switchblades — Always Getting High</td>
+          <td>CH 03</td><td id="gt-name-2">INDIE VIDEOS</td><td id="gt-prog-2">The Switchblades</td>
           <td class="live-tag"><span class="live-dot"></span>NEW</td>
         </tr>
         <tr data-ch="3" onclick="switchToChannel(3)">
-          <td>CH 04</td><td id="gt-name-3">CULTURE</td><td id="gt-prog-3">L8@NITE</td>
+          <td>CH 04</td><td id="gt-name-3">CULTURE</td><td id="gt-prog-3">The Live Show</td>
           <td class="live-tag">22:00</td>
         </tr>
         <tr data-ch="4" onclick="switchToChannel(4)">
@@ -571,19 +571,19 @@ const MP4_URL = 'https://raw.githubusercontent.com/fairefaretravels/Stv-broadcas
 const DEFAULTS = {
   password:'stv2024',
   membersUrl:'#',
-  ticker:'STV Digital — Premium broadcast content ◆ The Switchblades — Always Getting High on CH 03 ◆ CH 05 — Classic Chaplin films in order ◆ The Correspondent is LIVE ◆ Follow STV Digital across all platforms',
+  ticker:'STV Digital — Premium broadcast content • radiomeltdown.com • The Switchblades — Always Getting High on CH 03 • CH 05 — Classic Chaplin films • The Static is LIVE • Follow @STVDigital across all platforms',
   channels:[
-    {name:'STV LIVE',     prog:'The Correspondent Report',              url:'', type:'logo'},
-    {name:'TRAVEL',       prog:'Faire Fare Travels',                    url:'', type:'logo'},
+    {name:'STV LIVE',     prog:'The Static',              url:'', type:'logo'},
+    {name:'TRAVEL',       prog:'Fair EFare Travels',                    url:'', type:'logo'},
     {name:'INDIE VIDEOS', prog:'The Switchblades — Always Getting High', url:MP4_URL, type:'mp4'},
-    {name:'CULTURE',      prog:'The Field Dispatch',                    url:'', type:'logo'},
+    {name:'CULTURE',      prog:'The Live Show',                    url:'', type:'logo'},
     {name:'CLASSICS',     prog:'Charlie Chaplin 1914–1915',             url:'', type:'chaplin'}
   ],
   announcements:[
     {badge:'Live Tonight', hot:true,  title:'The STV Correspondent Report',           body:'Your weekly debrief from the field. News, culture, travel — broadcast live from HQ.',  time:'▸ TUNE IN — CH 01'},
-    {badge:'🔴 Now Playing',  hot:true,  title:'The Switchblades — Always Getting High', body:'Raw. Unfiltered. Independently made. Tune to CH 03 for the new drop.',                 time:'▸ CH 03 — INDIE VIDEOS'},
+    {badge:'Now Playing',  hot:true,  title:'The Switchblades — Always Getting High', body:'Raw. Unfiltered. Independently made. Tune to CH 03 for the new drop.',                 time:'▸ CH 03 — INDIE VIDEOS'},
     {badge:'Now Streaming',   hot:false, title:'Classic Chaplin — CH 05',                body:'34 films from 1914–1915 playing in continuous order on Channel 5.',                    time:'▸ CH 05 — CLASSICS'},
-    {badge:'Coming Soon',  hot:true,  title:'Special Broadcast Event',                body:'A major STV Digital production is in the works. Check back for the exclusive drop.',   time:'▸ Date TBA'}
+    {badge:'Coming Soon',  hot:true,  title:'Special Broadcast Event',                body:'A major STV Digital live at Detroit Vinyl Fest. Exclusive interviews • Check back for the exclusive drop.',   time:'▸ Date TBA'}
   ]
 };
 function loadData(){ try{ return JSON.parse(localStorage.getItem('stv_data'))||JSON.parse(JSON.stringify(DEFAULTS)); }catch(e){ return JSON.parse(JSON.stringify(DEFAULTS)); } }
